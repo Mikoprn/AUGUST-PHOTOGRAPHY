@@ -1,0 +1,51 @@
+@use "../abstracts" as *;
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.button {
+  font-size: clamp(1.4rem, 2vw, $size-base);
+  font-weight: $fw-medium;
+  color: $dark;
+  background-color: $lightPrimary;
+  padding: $size-small $size-2-xl;
+  border-radius: $size-5-base;
+  text-align: center;
+  transition: $transition;
+  cursor: pointer;
+}
+button:hover,
+button:focus-visible {
+  opacity: $opacity;
+}
+
+.button-primary {
+  background-image: $gradientPrimary;
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: $lightPrimary;
+  border: $borderLight;
+  backdrop-filter: blur($size-2-base);
+}
+
+.button-accent {
+  @include flex-between-center;
+  background-color: $lightPrimary;
+  // gap: $size-small;
+  gap: clamp($size-xsmall, 2vw, $size-small);
+
+  img {
+    max-width: $size-base;
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: .8rem 1.2rem;
+  }
+}

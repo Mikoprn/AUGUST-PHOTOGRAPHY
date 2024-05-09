@@ -1,0 +1,140 @@
+@use "../abstracts" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scroll-padding-top: $size-10-base;
+}
+
+body {
+  max-width: $maxWidth;
+  margin-inline: auto;
+}
+
+h1,
+.h1 {
+  font-size: clamp($size-3-base, 5vw, $size-5-base);
+  font-weight: $fw-semiBold;
+  line-height: 1;
+  margin-bottom: $size-2-base;
+}
+
+h2,
+.h2 {
+  font-size: clamp($size-2-xl, 3.5vw, 3.5rem);
+  font-weight: $fw-semiBold;
+  line-height: 1.2;
+}
+
+h3,
+.h3 {
+  font-size: clamp($size-2-base, 2.5vw, $size-2-xl);
+  font-weight: $fw-medium;
+  line-height: 1.2;
+}
+
+h4,
+.h4 {
+  font-size: clamp($size-1-xl, 2vw, $size-2-base);
+  font-weight: $fw-medium;
+  line-height: 1.2;
+}
+
+h5,
+.h5 {
+  font-size: clamp($size-base, 1.8vw, $size-1-xl);
+  font-weight: $fw-medium;
+  line-height: 1.2;
+}
+
+p,
+.p {
+  font-size: clamp(1.4rem, 1.6vw, $size-base);
+  font-weight: $fw-light;
+  line-height: 1.6;
+  opacity: $opacity;
+}
+
+span {
+  font-size: clamp(1.4rem, 2vw, $size-1-xl);
+  opacity: $opacity;
+}
+
+figcaption {
+  font-size: clamp(1.4rem, 2vw, $size-base);
+}
+
+input,
+textarea,
+label {
+  font-size: $size-base;
+  font-weight: $fw-light;
+  line-height: 1.6;
+}
+
+a {
+  display: block;
+  font-size: clamp(1.4rem, 2vw, $size-1-xl);
+  font-weight: $fw-semiBold;
+  line-height: 1.2;
+  color: $light;
+  transition: $transition;
+  cursor: pointer;
+}
+
+a:hover,
+a:focus-visible {
+  opacity: $opacity;
+}
+
+img,
+svg {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: $size-xsmall;
+  object-fit: cover;
+  object-position: center;
+}
+
+section {
+  max-width: 100%;
+}
+
+.wrapper-section {
+  width: $widthDekstop;
+  margin-inline: auto;
+  padding-block: clamp($size-3-base, 5vw, $size-5-base);
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 60%;
+  }
+
+  .wrapper-section {
+    width: $widthSmall;
+  }
+}
+
+@media (max-width: 300px) {
+  html {
+    font-size: 54%;
+  }
+
+  h1 {
+    @include text-center;
+  }
+}

@@ -1,0 +1,132 @@
+@use "../abstracts" as *;
+
+header {
+  .nav__gallery {
+    @include flex-between-center;
+    height: clamp(5rem, 7vw, $size-7-base);
+    padding-block: 0;
+    border-bottom: $borderPrimary;
+  }
+}
+
+.gallery {
+  padding-top: $size-base;
+
+  .button {
+    @include flex-between-center;
+    gap: $size-small;
+    width: fit-content;
+
+    img {
+      width: clamp($size-base, 2vw, $size-2-base);
+      transform: rotate(180deg);
+    }
+  }
+
+  h1 {
+    @include text-center;
+    margin-block: clamp($size-3-base, 4vw, $size-4-base);
+
+    span {
+      background-image: $gradientPrimary;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: $fw-bold;
+    }
+  }
+
+  .tab__buttons {
+    @include flex-center;
+    @include flex-wrap;
+    gap: clamp($size-small, 2vw, $size-1-xl);
+    margin-bottom: clamp($size-2-base, 4vw, $size-4-base);
+
+    .button {
+      color: $lightPrimary;
+      background-color: $dark;
+
+      &.active {
+        color: $dark;
+        background-image: $gradientPrimary;
+      }
+    }
+
+    .booking-btn {
+      color: $dark;
+      background-color: $lightPrimary;
+    }
+  }
+
+  .tab {
+    &__content {
+      @include fadeIn;
+      display: none;
+
+      h2:not(:last-child) {
+        @include text-center;
+        margin-top: clamp($size-3-base, 4vw, $size-4-base);
+        margin-bottom: clamp($size-2-base, 4vw, $size-4-base);
+      }
+    }
+
+    &__flex {
+      @include flex-between-center;
+      @include flex-wrap;
+      @include fadeIn;
+      column-gap: clamp($size-2-base, 3vw, $size-3-base);
+      row-gap: clamp($size-2-base, 4vw, $size-4-base);
+      transition: $transition;
+
+      figure {
+        max-width: 58rem;
+        border: $borderPrimary;
+        border-radius: $size-xsmall;
+        filter: grayscale(80%);
+        transition: $transition;
+
+        &:hover,
+        &:focus-visible {
+          filter: grayscale(0%);
+          transform: scale(1.02);
+        }
+
+        img {
+          width: 100%;
+          height: clamp(30rem, 40vw, 40rem);
+        }
+
+        figcaption {
+          text-align: center;
+          padding: $size-base $size-small;
+        }
+      }
+    }
+
+    &__content.active {
+      display: block;
+    }
+
+    &__content.active .tab__buttons .button {
+      background-image: $gradientPrimary;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery {
+    .tab {
+      &__flex {
+        @include flex-center;
+
+        figure {
+          width: 100%;
+
+          img {
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

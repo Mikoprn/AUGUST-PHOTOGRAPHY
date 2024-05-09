@@ -1,0 +1,94 @@
+@use "../abstracts" as *;
+
+header {
+  max-width: 100%;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur($size-2-base);
+  z-index: 999;
+}
+
+.nav {
+  @include flex-between-center;
+  height: clamp($size-5-base, 7vw, $size-7-base);
+  padding-block: 0;
+  border-bottom: $borderPrimary;
+
+  &__logo {
+    font-size: clamp($size-base, 2vw, $size-2-base);
+    font-weight: $fw-semiBold;
+    background-image: $gradientPrimary;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__menu {
+    @include flex-between-center;
+    gap: clamp(0rem, 3vw, $size-2-xl);
+  }
+
+  &__item:last-child {
+    display: none;
+  }
+
+  &__link {
+    font-weight: $fw-regular;
+  }
+
+  &__menu-btn {
+    max-width: $size-3-base;
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    box-shadow: $boxShadow;
+  }
+
+  .nav {
+    &__menu {
+      position: absolute;
+      top: clamp($size-5-base, 7vw, $size-7-base);
+      left: 0;
+      transform: translateX(-100%);
+      min-width: 100%;
+      padding-inline: 2.5%;
+      flex-direction: column;
+      gap: 0rem;
+      background-color: $dark;
+      transition: $transition;
+
+      &.active {
+        transform: translateX(0%);
+      }
+    }
+
+    &__item {
+      width: 100%;
+
+      &:last-child {
+        display: block;
+      }
+    }
+
+    &__link {
+      padding-block: $size-small;
+    }
+
+    &__contact.secondary {
+      display: block;
+      margin-block: $size-small;
+      text-align: center;
+    }
+
+    &__contact {
+      display: none;
+    }
+
+    &__menu-btn {
+      display: block;
+    }
+  }
+}

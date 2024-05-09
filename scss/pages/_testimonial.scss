@@ -1,0 +1,87 @@
+@use "../abstracts" as *;
+
+.testimonial {
+  &__flex {
+    @include flex-between-center;
+    margin-bottom: clamp($size-2-base, 4vw, $size-4-base);
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__cards {
+    @include flex-center;
+    @include flex-wrap;
+    gap: clamp($size-base, 2vw, $size-2-base);
+    width: 100%;
+
+    .card {
+      max-width: 38rem;
+      background-color: $dark;
+      padding: clamp($size-base, 2vw, $size-2-base);
+      border-radius: $size-xsmall;
+
+      &__name {
+        h3 {
+          margin-bottom: 0;
+        }
+
+        span {
+          font-size: 1.4rem;
+        }
+      }
+
+      img {
+        max-width: $size-10-base;
+        margin-block: clamp($size-small, 1vw, 1.2rem);
+      }
+
+      p {
+        opacity: 1;
+      }
+    }
+
+    .work {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+      background-image: $gradientPrimary;
+      padding-block: $size-5-base;
+      padding-inline: $size-2-base;
+
+      &__flex {
+        @include flex-align-center;
+        margin-bottom: 0rem;
+        margin-top: $size-xsmall;
+
+        h4 {
+          // max-width: 25rem;
+          margin-bottom: 0rem;
+          line-height: 1;
+        }
+
+        figure {
+          border: $borderLight;
+          border-radius: $size-6-base;
+          width: clamp($size-6-base, 10vw, $size-10-base);
+
+          img {
+            width: 100%;
+            height: 100%;
+            margin-block: 0rem;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+
+      p {
+        font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+        opacity: 1;
+        color: $dark;
+        font-weight: $fw-bold;
+      }
+    }
+  }
+}

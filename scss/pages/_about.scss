@@ -1,0 +1,95 @@
+@use "../abstracts" as *;
+
+.about {
+  &__flex {
+    @include flex-between-center;
+    margin-bottom: clamp($size-2-base, 4vw, $size-4-base);
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__contents {
+    @include flex-between;
+    gap: $size-2-base;
+
+    img {
+      width: clamp(30rem, 35vw, 35rem);
+    }
+  }
+
+  &__intro {
+    padding: $size-2-base;
+    padding: clamp($size-small, 2vw, $size-2-base);
+    border: $borderPrimary;
+    border-radius: $size-xsmall;
+
+    article {
+      h3 {
+        margin-bottom: $size-small;
+      }
+
+      p {
+        padding-bottom: $size-2-base;
+      }
+    }
+  }
+
+  &__contact {
+    border-top: $borderPrimary;
+
+    h3 {
+      padding-top: $size-2-base;
+      margin-bottom: $size-small;
+    }
+
+    .contact-flex {
+      display: flex;
+      gap: clamp($size-4-base, 8vw, $size-10-base);
+      margin-bottom: $size-2-base;
+
+      .contact-links {
+        @include flex-between-center;
+        gap: $size-small;
+
+        img {
+          width: clamp($size-2-xl, 3vw, $size-3-base);
+          background-color: $darkGrey;
+          padding: $size-xsmall;
+          border-radius: $size-xsmall;
+        }
+      }
+
+      &:last-child {
+        @include flex-between-center;
+        @include flex-wrap;
+        margin-bottom: 0rem;
+        gap: $size-2-base;
+      }
+
+      .buttons-flex {
+        @include flex-center;
+        gap: $size-base;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .about {
+    &__contents {
+      @include flex-center;
+      @include flex-wrap;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .about {
+    .contact-flex:last-child {
+      @include flex-center;
+    }
+  }
+}
