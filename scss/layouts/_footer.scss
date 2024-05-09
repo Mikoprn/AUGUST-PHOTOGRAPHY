@@ -1,0 +1,35 @@
+@use "../abstracts" as *;
+
+.footer {
+  @include flex-between-center;
+  gap: clamp($size-small, 2vw, $size-2-base);
+  border-top: $borderPrimary;
+  padding-block: $size-xsmall;
+
+  &__flex {
+    @include flex-between-center;
+    @include flex-wrap;
+    gap: $size-2-base;
+
+    &:nth-child(2) {
+      gap: clamp($size-small, 1vw, $size-base);
+    }
+
+    img {
+      width: clamp($size-2-xl, 3vw, $size-3-base);
+      background-color: $darkGrey;
+      padding: $size-xsmall;
+      border-radius: $size-xsmall;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,121 @@
+@use "../abstracts" as *;
+
+.services {
+  &__flex {
+    @include flex-between-center;
+    margin-bottom: clamp($size-2-base, 4vw, $size-4-base);
+    gap: clamp($size-base, 2vw, $size-2-base);
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .button {
+    @include flex-between-center;
+    gap: $size-small;
+
+    img {
+      max-width: $size-2-base;
+    }
+  }
+
+  &__event {
+    display: flex;
+    gap: $size-2-base;
+
+    h3 {
+      margin-bottom: $size-small;
+    }
+
+    .services__contents {
+      flex: 1;
+
+      .hightlight {
+        margin-top: $size-2-base;
+
+        h4 {
+          margin-bottom: $size-base;
+        }
+
+        ul {
+          display: grid;
+          gap: $size-base;
+
+          li {
+            border: $borderPrimary;
+            border-radius: $size-xsmall;
+            padding: clamp($size-small, 1vw, $size-base);
+
+            p {
+              @include flex-align-center;
+              opacity: 1;
+              gap: $size-base;
+              font-size: clamp(1.2rem, 2vw, 1.4rem);
+
+              span {
+                font-size: $size-2-base;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    img {
+      width: clamp(30rem, 35vw, 45rem);
+      border-bottom-left-radius: $size-8-base;
+      flex: 1;
+    }
+  }
+
+  &__work {
+    h2 {
+      margin-block: $size-4-base clamp($size-2-base, 4vw, $size-4-base);
+      text-align: center;
+    }
+
+    .services__flex {
+      @include flex-center;
+      @include flex-wrap;
+      gap: clamp($size-base, 2vw, $size-2-base);
+      margin-bottom: 0rem;
+
+      .step {
+        max-width: 27rem;
+        width: 100%;
+        padding: clamp($size-small, 2vw, $size-2-base);
+        border-radius: $size-xsmall;
+        background-color: $dark;
+
+        h3 {
+          margin-bottom: $size-small;
+        }
+
+        &:last-child {
+          background-image: $gradientPrimary;
+          color: $dark;
+          padding: $size-2-base clamp($size-small, 2vw, $size-2-base);
+
+          p {
+            opacity: 1;
+            font-weight: $fw-medium;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    &__event {
+      flex-direction: column-reverse;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
